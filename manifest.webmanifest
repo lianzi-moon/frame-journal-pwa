@@ -1,0 +1,12 @@
+{
+  "name": "帧藏 · 共同生活手账",
+  "short_name": "帧藏",
+  "description": "记录你们共同经历的日常、回忆和彼此的小发现。",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2e9d5",
+  "theme_color": "#cf342e",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
