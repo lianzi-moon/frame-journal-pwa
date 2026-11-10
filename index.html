@@ -448,7 +448,6 @@ async function installPwa(){if(!deferredInstallPrompt)return;deferredInstallProm
 async function initCloud(){if(!window.supabase?.createClient)return;const client=cloudClient(),{data,error}=await client.auth.getSession();if(error)throw error;cloudSession=data.session;client.auth.onAuthStateChange((_event,session)=>{cloudSession=session;setTimeout(()=>{if(session){loadCloudSpace()}else{cloudSpaceId='';cloudSpaceInfo=null;render()}},0)});if(cloudSession)await loadCloudSpace()}
 
 const preferenceIdeas=[['饮料的小偏好','TA 更喜欢热饮还是冰饮？平时会点什么？'],['喜欢的口感','TA 偏爱脆脆的、软糯的、清淡的，还是重口一点？'],['疲惫时的陪伴','TA 累的时候更喜欢安静待着、聊聊天，还是一个拥抱？'],['早晨的习惯','TA 喜欢早起还是睡到自然醒？']];
-let modal=null,editId=null;
 async function bootApp(){try{await migrateLegacyPhotos();await loadPhotoCache();await initCloud()}catch(err){console.error(err);toast('云端初始化暂不可用，本机记录仍保留。')}render()}
 bootApp();showInstallHint();if(localStorage.getItem('wzj-theme')==='dark')document.body.classList.add('dark');function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('wzj-theme',document.body.classList.contains('dark')?'dark':'light');render()}
 </script></body>
