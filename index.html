@@ -1248,6 +1248,125 @@ body.dark::before{mix-blend-mode:screen;opacity:.035}
 
 /* 合并收尾：统一启用四类卡片的和纸胶带 */
 .memory-card::before,.pref-card::before,.entry::before,.sidebar-idea::before{display:block!important}
+/* ============================================================
+   参考稿还原 · 字体与视觉布局
+   只覆盖字族 / 字重 / 字距 / 字号 / 行高 / 卡片节奏。
+   配色、胶带、拍立得、硬投影、功能类样式全部保持原样。
+   ============================================================ */
+
+:root{
+  --hand:'Ma Shan Zheng','Long Cang','Noto Serif SC',cursive;
+  --serif:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',serif;
+  --sans:'DM Sans','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;
+}
+
+/* ---------- 1. 正文回到衬线 ---------- */
+body{font-family:var(--serif)!important}
+
+.memory-card p,.entry p,.pref-card p,
+.hero p,.section-title p,.memory-home-head span,
+.featured-copy p,.memory-full,.time-detail,.time-preview,
+.memory-view-copy p,.upcoming-copy p,.anniversary p,
+.focus-board p,.pref-note p,.quote,.local-note,
+.pref-empty,.empty,.memory-empty,.timeline-empty,.upcoming-empty,
+.bk-note,.privacy-note,.lock-foot,
+.cloud-panel-content p,.cloud-note,.cloud-message,.cloud-space-status{
+  font-family:var(--serif);
+  letter-spacing:0;
+}
+
+/* ---------- 2. 标题：手写体 + 400（去掉伪粗） ---------- */
+.brand strong,
+.hero h1,.section-title h1,.memory-home-head h1,
+.panel h2,.memory-gallery-head h2,.timeline-head h2,.map-heading h2,
+.memory-card h3,.entry h3,.pref-card h3,
+.featured-copy h2,.memory-view-copy h2,.modal-head h2,
+.anniversary h3,.upcoming-copy strong,.upcoming-head h2,.focus-board h3,
+.memory-timeline-card h3,.lock-card h2{
+  font-family:var(--hand);
+  font-weight:400!important;
+  letter-spacing:.8px;
+}
+.brand strong{letter-spacing:2px}
+
+/* ---------- 3. 小签：日期 / 分类 / 标签 / 印章 / 导航 ---------- */
+.crumb,.eyebrow,.datepill,.featured-kicker,
+.entry-meta,.memory-card-meta,.source,
+.time-date,.time-filter,.focus-label,
+.upcoming-copy small,.upcoming-date small,.upcoming-head small,
+.anniversary .label,.panel-head small,.memory-gallery-head small,.form-note,
+.memory-cover-empty small,.pref-idea-card small,.pref-idea-card b,
+.tag,.tag.sage,.tag.gold,.secret,
+.memory-card details summary,
+.nav button,
+.sidebar-idea p,.sidebar-idea-head small,.sidebar-idea-action,
+.memory-card-actions button,.entry-actions button,
+.lock-card>p,.banner-backup span,.upcoming-edit{
+  font-family:var(--hand);
+  letter-spacing:.6px;
+}
+.nav button{font-weight:400!important}
+.tag,.tag.sage,.tag.gold{font-weight:600!important}
+.secret{font-weight:700!important}
+
+/* ---------- 4. 控件回到无衬线 ---------- */
+.btn,.btn.small,.linkbtn,
+.memory-view-toggle button,
+.field label,.checkline,
+.upcoming-edit,.banner-backup button,.privacy-note button,
+.sidebar-utility button,.cloud-signout,
+.bk-stats b,.bk-row b,.days b,.upcoming-date b{
+  font-family:var(--sans);
+  letter-spacing:0;
+}
+
+/* ---------- 5. 字号 / 行高：参考稿的三级节奏 ---------- */
+.hero h1,.section-title h1,.memory-home-head h1{
+  font-size:clamp(32px,3.2vw,40px);
+  line-height:1.3;
+}
+.hero p,.section-title p,.memory-home-head span{font-size:14.5px;line-height:1.75}
+.crumb{font-size:13.5px}
+
+.memory-card h3,.entry h3,.pref-card h3{font-size:20px;line-height:1.5}
+.panel h2,.memory-gallery-head h2,.timeline-head h2,.map-heading h2{font-size:21px;line-height:1.4}
+.modal-head h2{font-size:23px}
+.memory-view-copy h2{font-size:27px;line-height:1.35}
+.featured-copy h2{font-size:32px;line-height:1.3}
+
+.memory-card p,.entry p,.pref-card p,.upcoming-copy p,.anniversary p,
+.pref-note p,.focus-board p{font-size:15.5px;line-height:1.8}
+.memory-full,.time-detail,.memory-view-copy p{font-size:16px;line-height:1.9}
+.memory-card-meta,.entry-meta{font-size:12.5px}
+.source,.time-date,.upcoming-copy small,.upcoming-head small,.focus-label,.time-filter{font-size:12px}
+
+/* ---------- 6. 卡片节奏：胶带露外 / 拍立得白边 ---------- */
+.cards,.memory-gallery{gap:16px}
+.memory-card,.entry,.pref-card{overflow:visible!important}
+.memory-card::before,.entry::before,.pref-card::before{
+  top:-12px;width:78px;height:23px;
+}
+.memory-cover,.memory-cover-empty{
+  height:164px;border-width:6px;border-bottom-width:20px;
+}
+.memory-cover-stack{padding:5px}
+.entry{padding:18px 20px}
+.memory-card-body{padding:13px 16px 16px}
+
+/* ---------- 7. 移动端 ---------- */
+@media(max-width:900px){
+  .memory-cover,.memory-cover-empty{height:146px}
+}
+@media(max-width:640px){
+  .hero h1,.section-title h1,.memory-home-head h1{font-size:28px}
+  .memory-card h3,.entry h3,.pref-card h3{font-size:18px}
+  .memory-cover,.memory-cover-empty{height:118px;border-bottom-width:15px}
+  .memory-card::before,.entry::before,.pref-card::before{
+    width:58px;height:19px;top:-10px;
+  }
+  .sidebar-utility{display:flex!important;flex-wrap:wrap!important}
+  .sidebar-utility button{flex:1 1 calc(50% - 4px)!important;min-width:0!important}
+}  
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
 <body data-page-node-id="x46xZUs0aJrt30K2fiNvsT"><div id="app" data-page-node-id="VsgnDpbRs7J7dcCDne4Wko"></div><script>
 const KEY='womenzhijian-v1';const today=new Date();const iso=d=>new Date(d).toISOString().slice(0,10);const sample={entries:[{id:'m1',type:'memory',date:iso(new Date(today-86400000*2)),title:'晚饭后散步',category:'日常',body:'绕着熟悉的街区走了一圈，聊了最近的小事。风有点凉，但回家的路上心里很暖。',detail:'记得路边那家小店飘出来的面包香。',mood:'😊',place:'家附近'},{id:'m2',type:'memory',date:iso(new Date(today-86400000*8)),title:'一起做了晚餐',category:'日常',body:'第一次尝试做番茄炖牛腩，虽然花的时间比想象中久，最后还是一起吃完了。',detail:'下次记得多放一点土豆。',mood:'🥰',place:''},{id:'r1',type:'reflection',date:iso(new Date(today-86400000)),title:'今天想记下的事',body:'你认真听我说完那些琐碎烦恼的时候，我觉得被好好接住了。想记住这种安心，也提醒自己多表达感谢。',mood:'💛',private:true},{id:'p1',type:'preference',date:iso(new Date(today-86400000*12)),title:'喜欢的早餐',category:'食物饮品',body:'喜欢热豆浆和咸口早餐，周末可以试试附近那家豆花店。',source:'聊天时提到',confirmed:true},{id:'p2',type:'preference',date:iso(new Date(today-86400000*20)),title:'理想的约会',category:'约会方式',body:'比起排得很满的行程，更喜欢慢慢散步、找一家安静的小店。',source:'相处观察',confirmed:false},{id:'p3',type:'preference',date:iso(new Date(today-86400000*4)),title:'疲惫时的陪伴',category:'相处方式',body:'累的时候先给一点安静空间，再问要不要一起吃点东西。',source:'认真聊过',confirmed:true},{id:'w1',type:'wish',date:iso(today),title:'找个晴天去植物园',category:'想去的地方',body:'带上相机，慢慢逛，结束后找家咖啡馆坐一会儿。',status:'想去'},{id:'a1',type:'anniversary',date:'2026-07-14',title:'恋爱起始日',body:'',category:'恋爱纪念日',yearly:true}],anniversaryDate:''};let photoDBPromise=null;const photoUrlCache=new Map();let db=load();let lockCfg=null,unlocked=true,bm={},snaps=[],snapBusy=false;let page='home',searchTerm='',filter='全部',modal=null,editId=null,storyFilter='all',memoryMonth='全部月份',memoryCategory='全部类型',memoryView='album';let lastFocusedElement=null;function load(){try{return {...sample,...JSON.parse(localStorage.getItem(KEY)||'{}'),entries:JSON.parse(localStorage.getItem(KEY)||'{}').entries||sample.entries}}catch{return structuredClone(sample)}}function openPhotoDB(){if(photoDBPromise)return photoDBPromise;photoDBPromise=new Promise((resolve,reject)=>{const req=indexedDB.open('wzj-photo-store',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('photos'))req.result.createObjectStore('photos',{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});return photoDBPromise}
