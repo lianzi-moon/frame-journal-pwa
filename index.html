@@ -1248,6 +1248,94 @@ body.dark::before{mix-blend-mode:screen;opacity:.035}
 
 /* 合并收尾：统一启用四类卡片的和纸胶带 */
 .memory-card::before,.pref-card::before,.entry::before,.sidebar-idea::before{display:block!important}
+   /* ============================================================
+   字体最终覆盖 · 全站无衬线
+   覆盖此前所有 Ma Shan Zheng / 手写体声明。
+   只改字族与字重，不动任何功能。
+   ============================================================ */
+
+:root{
+  --ui-font:'Microsoft YaHei','Noto Sans SC','PingFang SC','Hiragino Sans GB',Arial,sans-serif;
+}
+
+html,body,button,input,textarea,select{
+  font-family:var(--ui-font)!important;
+}
+
+/* ---- 标题：700 ---- */
+.brand strong,
+.hero h1,.section-title h1,.memory-home-head h1,
+.panel h2,.memory-gallery-head h2,.timeline-head h2,.map-heading h2,
+.memory-card h3,.entry h3,.pref-card h3,
+.featured-copy h2,.memory-view-copy h2,.modal-head h2,
+.anniversary h3,.upcoming-copy strong,.upcoming-head h2,.focus-board h3,
+.memory-timeline-card h3,.lock-card h2,.bk-sec h3,.bk-stats b,.bk-row b{
+  font-family:var(--ui-font)!important;
+  font-weight:700!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 正文：400 ---- */
+.memory-card p,.entry p,.pref-card p,
+.hero p,.section-title p,.memory-home-head span,
+.featured-copy p,.memory-full,.time-detail,.time-preview,
+.memory-view-copy p,.upcoming-copy p,.anniversary p,
+.focus-board p,.pref-note p,.quote,.local-note,.memory-card details,
+.pref-empty,.empty,.memory-empty,.timeline-empty,.upcoming-empty,
+.bk-note,.privacy-note,.lock-foot,.lock-card>p,
+.cloud-panel-content p,.cloud-note,.cloud-message,.cloud-space-status,
+.banner-backup span{
+  font-family:var(--ui-font)!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 日期 / 小签：500 ---- */
+.crumb,.entry-meta,.memory-card-meta,.source,.featured-kicker,.form-note,
+.sidebar-idea p,.sidebar-idea-head small,.sidebar-idea-action,
+.memory-gallery-head small,.anniversary .label,.panel-head small,
+.datepill,.pref-idea-card small,.pref-idea-card b,
+.memory-cover-empty small,.upcoming-copy small,.upcoming-date small,.upcoming-head small,
+.time-date,.time-filter,.focus-label{
+  font-family:var(--ui-font)!important;
+  font-weight:500!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 标签用贴纸样式本身，不加手写 ---- */
+.tag,.tag.sage,.tag.gold{
+  font-family:var(--ui-font)!important;
+  font-weight:600!important;
+  letter-spacing:0!important;
+}
+.secret{
+  font-family:var(--ui-font)!important;
+  font-weight:700!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 导航 / 卡片操作：700 ---- */
+.nav button,
+.memory-card-actions button,.entry-actions button,
+.memory-card details summary,.sidebar-utility button{
+  font-family:var(--ui-font)!important;
+  font-weight:700!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 控件 / 表单 / 弹层 ---- */
+.btn,.btn.small,.linkbtn,.memory-view-toggle button,
+.field label,.checkline,.upcoming-edit,.banner-backup button,
+.privacy-note button,.upcoming-icon,.cloud-signout,.toast{
+  font-family:var(--ui-font)!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 数字：DM Sans，中文回落 ---- */
+.days b,.upcoming-date b{
+  font-family:'DM Sans','Microsoft YaHei','Noto Sans SC',Arial,sans-serif!important;
+  font-weight:700!important;
+}
 /* ============================================================
    参考稿还原 · 字体与视觉布局
    只覆盖字族 / 字重 / 字距 / 字号 / 行高 / 卡片节奏。
