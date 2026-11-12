@@ -1249,6 +1249,86 @@ body.dark::before{mix-blend-mode:screen;opacity:.035}
 /* 合并收尾：统一启用四类卡片的和纸胶带 */
 .memory-card::before,.pref-card::before,.entry::before,.sidebar-idea::before{display:block!important}
    /* ============================================================
+   字体还原：回到「微软雅黑 / Noto Sans SC」无衬线系统
+   抹掉 Ma Shan Zheng 手写体，并把被改掉的字重、字距一并修正。
+   只作用于文字，不删任何功能类样式。
+   ============================================================ */
+
+:root{
+  --serif:'Microsoft YaHei','Noto Sans SC',Georgia,serif;
+  --sans:'Microsoft YaHei','Noto Sans SC',Arial,sans-serif;
+}
+
+html,body,button,input,textarea,select{
+  font-family:var(--serif)!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 标题：700 ---- */
+.brand strong,
+.hero h1,.section-title h1,.memory-home-head h1,
+.panel h2,.memory-gallery-head h2,.timeline-head h2,.map-heading h2,
+.modal-head h2,.memory-view-copy h2,.featured-copy h2,
+.anniversary h3,.upcoming-copy strong,.upcoming-head h2,
+.focus-board h3,.wall-heading h2,
+.entry h3,.pref-card h3,.memory-card h3,.memory-timeline-card h3,
+.nav button,.memory-card-actions button,.entry-actions button,
+.tag,.tag.sage,.tag.gold,.secret,
+.lock-card h2,.bk-sec h3,.bk-stats b,.bk-row b{
+  font-family:var(--serif)!important;
+  font-weight:700!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 正文：500 / 1.8 ---- */
+.hero p,.section-title p,.memory-home-head span,
+.memory-card p,.entry p,.pref-card p,
+.upcoming-copy p,.anniversary p,.pref-note p,.focus-board p,
+.memory-full,.time-detail,.memory-view-copy p,.time-preview,
+.featured-copy p,.quote,.local-note,.memory-card details,
+.memory-empty,.empty,.pref-empty,.timeline-empty,.upcoming-empty,
+.lock-card>p,.bk-note,.privacy-note,.lock-foot,
+.banner-backup span,.cloud-panel-content p,.cloud-note,.cloud-message{
+  font-family:var(--serif)!important;
+  font-weight:500!important;
+  line-height:1.8!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 日期 / 小签：600 ---- */
+.crumb,.entry-meta,.memory-card-meta,.source,.featured-kicker,.form-note,
+.memory-gallery-head small,.panel-head small,
+.memory-cover-empty small,.upcoming-copy small,.upcoming-date small,
+.time-date,.upcoming-head small,.focus-label,.time-filter,
+.map-node small,.map-root small,.map-bottom,.story-legend,
+.datepill,.pref-idea-card small,.pref-idea-card b,
+.sidebar-idea p,.sidebar-idea-head small,.sidebar-idea-action,
+.pref-note .note-meta,.bk-stats small,.bk-row small,.bk-sec small,.bk-empty,
+.cloud-space-actions label,.cloud-space-status label{
+  font-family:var(--serif)!important;
+  font-weight:600!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 详情摘要 / 按钮 / 表单 ---- */
+.memory-card details summary{font-weight:600!important}
+
+.btn,.btn.small,.linkbtn,.top-actions .btn,
+.memory-view-toggle button,
+.field label,.checkline,.upcoming-edit,
+.banner-backup button,.privacy-note button,.upcoming-icon,
+.cloud-signout,.toast,.lock-pin,.lock-card .btn,.sidebar-utility button{
+  font-family:var(--serif)!important;
+  letter-spacing:0!important;
+}
+
+/* ---- 数字 ---- */
+.days b,.upcoming-date b,.datebox b{
+  font-family:'DM Sans','Microsoft YaHei','Noto Sans SC',Arial,sans-serif!important;
+  font-weight:700!important;
+  letter-spacing:0!important;
+}
+   /* ============================================================
    字体最终覆盖 · 全站无衬线
    覆盖此前所有 Ma Shan Zheng / 手写体声明。
    只改字族与字重，不动任何功能。
